@@ -39,7 +39,7 @@ private:
 
 	vector<GPIO> gpio;
 
-	void set(string *values);
+	void set(int *values);
 
 	void A();
 	void AB();
@@ -51,8 +51,7 @@ private:
 	void DA();
 
 public:
-	Stepper();
-	Stepper(unsigned *numbers, unsigned size);
+	Stepper(int *numbers, int size);
 
 	void step(int increment);
 

@@ -13,6 +13,15 @@
 #ifndef _BEAGLEBONE_H
 #define _BEAGLEBONE_H
 
+#define AIN0		(1)
+#define AIN1		(2)
+#define AIN2		(3)
+#define AIN3		(4)
+#define AIN4		(5)
+#define AIN5		(6)
+#define AIN6		(7)
+#define AIN7		(8)
+
 /*
  * Not all of the following GPIO signal names are available.
  */

@@ -16,10 +16,7 @@
 #include <stdlib.h>
 #include <gpio.h>
 
-GPIO::GPIO() {
-}
-
-GPIO::GPIO(unsigned number) {
+GPIO::GPIO(int number) {
 	this->number = number;
 
 	char buffer[1024];
@@ -67,7 +64,7 @@ void GPIO::value(string value) {
 	out.close();
 }
 
-void GPIO::value(unsigned value) {
+void GPIO::value(int value) {
 	ofstream out;
 	out.open((path + "/value").c_str());
 	out << value;
@@ -82,7 +79,7 @@ string *GPIO::value(string *value) {
 	return value;
 }
 
-unsigned GPIO::value() {
+int GPIO::value() {
 	string value;
 
 	ifstream in;

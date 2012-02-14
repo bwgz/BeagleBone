@@ -15,10 +15,7 @@
 #include <stdio.h>
 #include <ain.h>
 
-AIN::AIN() {
-}
-
-AIN::AIN(unsigned number) {
+AIN::AIN(int number) {
 	this->number = number;
 
 	char buffer[1024];

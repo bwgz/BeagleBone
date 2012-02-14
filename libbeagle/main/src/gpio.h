@@ -20,21 +20,20 @@ using namespace std;
 class GPIO {
 private:
 	bool existed;
-	unsigned number;
+	int number;
 	string path;
 
 public:
-	GPIO();
-	GPIO(unsigned number);
+	GPIO(int number);
 	~GPIO();
 
 	void direction(string direction);
 
 	void value(string value);
-	void value(unsigned value);
+	void value(int value);
 
 	string *value(string *value);
-	unsigned value();
+	int value();
 
 	void dump();
 };

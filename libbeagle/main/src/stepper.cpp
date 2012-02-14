@@ -21,75 +21,72 @@
 #define SPEED_MAX	100
 #define SPEED_DELAY	10
 
-Stepper::Stepper() {
-}
-
-Stepper::Stepper(unsigned *numbers, unsigned size) : current_phase(STATE_A), current_speed(100), current_position(0) {
+Stepper::Stepper(int *numbers, int size) : current_phase(STATE_A), current_speed(100), current_position(0) {
 	for (int i = 0; i < size; i++) {
 		GPIO g(numbers[i]);
 		gpio.push_back(g);
 	}
 }
 
-void Stepper::set(string *values) {
+void Stepper::set(int *values) {
 	for (int i = 0; i < gpio.size(); i++) {
-		gpio[i].direction(*values++);
+		gpio[i].value(*values++);
 	}
 }
 
 void Stepper::A() {
-	set((string[]) { "high", "low", "low", "low"});
+	set((int[]) { 1, 0, 0, 0});
 	usleep(PHASE);
-	set((string[]) { "low", "low", "low", "low"});
+	set((int[]) { 0, 0, 0, 0});
 	usleep(PHASE);
 }
 
 void Stepper::AB() {
-	set((string[]) { "high", "high", "low", "low"});
+	set((int[]) { 1, 1, 0, 0});
 	usleep(PHASE);
-	set((string[]) { "low", "low", "low", "low"});
+	set((int[]) { 0, 0, 0, 0});
 	usleep(PHASE);
 }
 
 void Stepper::B() {
-	set((string[]) { "low", "high", "low", "low"});
+	set((int[]) { 0, 1, 0, 0});
 	usleep(PHASE);
-	set((string[]) { "low", "low", "low", "low"});
+	set((int[]) { 0, 0, 0, 0});
 	usleep(PHASE);
 }
 
 void Stepper::BC() {
-	set((string[]) { "low", "high", "high", "low"});
+	set((int[]) { 0, 1, 1, 0});
 	usleep(PHASE);
-	set((string[]) { "low", "low", "low", "low"});
+	set((int[]) { 0, 0, 0, 0});
 	usleep(PHASE);
 }
 
 void Stepper::C() {
-	set((string[]) { "low", "low", "high", "low"});
+	set((int[]) { 0, 0, 1, 0});
 	usleep(PHASE);
-	set((string[]) { "low", "low", "low", "low"});
+	set((int[]) { 0, 0, 0, 0});
 	usleep(PHASE);
 }
 
 void Stepper::CD() {
-	set((string[]) { "low", "low", "high", "high"});
+	set((int[]) { 0, 0, 1, 1});
 	usleep(PHASE);
-	set((string[]) { "low", "low", "low", "low"});
+	set((int[]) { 0, 0, 0, 0});
 	usleep(PHASE);
 }
 
 void Stepper::D() {
-	set((string[]) { "low", "low", "low", "high"});
+	set((int[]) { 0, 0, 0, 1});
 	usleep(PHASE);
-	set((string[]) { "low", "low", "low", "low"});
+	set((int[]) { 0, 0, 0, 0});
 	usleep(PHASE);
 }
 
 void Stepper::DA() {
-	set((string[]) { "high", "low", "low", "high"});
+	set((int[]) { 1, 0, 0, 1});
 	usleep(PHASE);
-	set((string[]) { "low", "low", "low", "low"});
+	set((int[]) { 0, 0, 0, 0});
 	usleep(PHASE);
 }
 

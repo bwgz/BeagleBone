@@ -20,13 +20,11 @@ using namespace std;
 class AIN {
 private:
 	bool existed;
-	unsigned number;
+	int number;
 	string path;
 
-	AIN();
-
 public:
-	AIN(unsigned number);
+	AIN(int number);
 	~AIN();
 
 	int value();
