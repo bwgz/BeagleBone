@@ -7,7 +7,7 @@ MKDIR=mkdir -p
 RMDIR=rmdir
 
 OBJS=$(addprefix $(OBJDIR)/,led.o)
-LIB=$(LIBDIR)/libbeagle.a
+LIBA=$(LIBDIR)/libbeagle.a
 BINS=led
 
 all: $(BINS)
@@ -21,8 +21,9 @@ $(OBJDIR)/%.o: %.cpp
 $(OBJS): | $(OBJDIR)
 
 led: $(OBJDIR)/led.o
-	g++ $+ ../../main/lib/libbeagle.a -o led
-	echo $(CXX) $(LDFLAGS) -o $@ $+
+	g++ $+ $(LIBA) -o led
+# use this if you want a version using the shared library
+#	$(CXX) $(LDFLAGS) -o $@ $+
 
 clean:
 	$(RM) $(OBJS) $(BINS)
