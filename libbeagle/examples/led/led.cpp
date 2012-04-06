@@ -10,11 +10,18 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#include <stdlib.h>
 #include <beaglebone.h>
 #include <led.h>
 
 int main(int argc, char **argv) {
-	LED led(GPIO2_8);
+	int number = GPIO2_8;
+
+	if (argc == 2) {
+		number = atoi(argv[1]);
+	}
+
+	LED led(number);
 
 	led.on();
 	sleep(1);
