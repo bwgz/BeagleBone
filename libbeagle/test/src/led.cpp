@@ -10,10 +10,11 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#include <beaglebone.h>
 #include <led.h>
 
 int main(int argc, char **argv) {
-	LED led(72);
+	LED led(GPIO2_8);
 
 	led.on();
 	sleep(1);
