@@ -5,7 +5,7 @@ LIBDIR=../lib
 MKDIR=mkdir -p
 RMDIR=rmdir
 
-OBJS=$(addprefix $(OBJDIR)/,gpio.o)
+OBJS=$(addprefix $(OBJDIR)/,ain.o gpio.o stepper.o)
 LIB=$(LIBDIR)/libbeagle.a
 
 all: $(LIB)
