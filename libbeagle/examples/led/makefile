@@ -7,13 +7,16 @@ RMDIR=rmdir
 
 OBJS=led.o
 LIBA=$(LIBDIR)/libbeagle.a
-BINS=led
+BINS=blink led
 
 all: $(BINS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $+
      
+blink: blink.o
+	$(CC) $(CFLAGS) -o $@ $+
+
 led: led.o
 	g++ $+ $(LIBA) -o led
 # use this if you want a version using the shared library
