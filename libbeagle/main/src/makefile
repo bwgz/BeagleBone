@@ -9,7 +9,7 @@ RMDIR=rmdir
 LIBA=$(LIBDIR)/libbeagle.a
 LIBSO=$(LIBDIR)/libbeagle.so
 
-OBJS=$(addprefix $(OBJDIR)/,ain.o gpio.o stepper.o)
+OBJS=$(addprefix $(OBJDIR)/,ain.o gpio.o rotary.o stepper.o)
 LIBS=$(LIBA) $(LIBSO)
 
 all: $(LIBS)
