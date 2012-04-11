@@ -10,12 +10,13 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#include <stdio.h>
 #include <rotary.h>
 
 Rotary::Rotary() : _position(0) {
 }
 
-Rotary::Rotary(unsigned a, unsigned b) : _position(0) {
+Rotary::Rotary(int a, int b) : _position(0) {
 	A = new GPIO(a);
 	B = new GPIO(b);
 
@@ -80,7 +81,7 @@ void *Rotary::monitor(void *arg) {
 				break;
 			case CW_2:
 				if (value == 2) {
-				state = CW_1;
+					state = CW_1;
 				}
 				else if (value == 1) {
 					state = CW_3;

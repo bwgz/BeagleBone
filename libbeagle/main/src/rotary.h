@@ -31,7 +31,7 @@ private:
 
 public:
 
-	Rotary(unsigned a, unsigned b);
+	Rotary(int a, int b);
 	~Rotary();
 
 	unsigned phase();
